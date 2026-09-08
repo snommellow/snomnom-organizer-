@@ -1,3 +1,3 @@
-# snomnom-rank-
-A personal ranking tools 
-snomnom_rank_2.0
+# snomnom Organizer-
+A personal organizer tools 
+Snomnom_Organizer_2.1
