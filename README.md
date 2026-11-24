@@ -203,8 +203,10 @@ Clearing your browser data removes what's saved, so keep a backup.
 
 | Version | Notes |
 |---|---|
-| **3.0** | Snomnom Organizer Tool. A full redesign from scratch with new modes, Scan, Workspace, Folders, translation and more. |
-| [2.1](https://snommellow.github.io/snomnom-organizer-/v2.1.html) | Snomnom Rank Tool. Still available at [/v2.1.html](https://snommellow.github.io/snomnom-organizer-/v2.1.html). |
+| [**3.0**](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0) | Snomnom Organizer Tool. A full redesign from scratch with new modes, Scan, Workspace, Folders, translation and more. |
+| [2.1](https://snommellow.github.io/snomnom-organizer-/v2.1.html) | Snomnom Rank Tool. Genre, Duration and Note tags, Timer, Calculation, Bookmarks, profiles and layouts. |
+| [2.0](https://snommellow.github.io/snomnom-organizer-/v2.0.html) | Snomnom Rank Tool. Rebuilt from the spreadsheet as a single HTML file. |
+| 1.x | The original Excel spreadsheet. |
 
 <br>
 
