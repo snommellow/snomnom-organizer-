@@ -57,7 +57,7 @@ account, and your work stays on your device.
     <td width="50%" valign="top">
       <img src="docs/images/workspace.png" alt="The Grade app in Workspace">
       <h3>Workspace</h3>
-      Apps that work on your table: Grade, Compare, Random pick and Session compare.
+      Apps that work on your table. Grade, Compare, Random pick and Session compare come built in.
     </td>
   </tr>
   <tr>
@@ -69,7 +69,7 @@ account, and your work stays on your device.
     <td width="50%" valign="top">
       <img src="docs/images/light.png" alt="The table in the Light theme">
       <h3>Light and dark</h3>
-      Every theme is built on the same design system, so everything looks right in each one.
+      17 dark themes and 17 light ones. Switch any time from Settings.
     </td>
   </tr>
 </table>
@@ -86,7 +86,7 @@ account, and your work stays on your device.
 4. Turn on the details you need from the **Optional** row: region, players, duration, genre, notes and more.
 5. Press **Copy scores** to paste the results back into your sheet.
 
-Your work saves on its own. Open **Bookmarks** to keep a copy you can come back to.
+If the page closes, your table is still there when you come back. Save it to a bookmark to keep a copy, or turn on Auto-save in Settings.
 
 <br>
 
@@ -96,14 +96,24 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 <summary><b>Table and modes</b></summary>
 <br>
 
-- **Normal, Select, Edit, Order and Playlist** modes
-- **Edit** works like a spreadsheet: arrow keys move, a pasted block fills across and down, and odd cells are flagged
-- **Playlist**: add stages to Today, set their goals, press Play to work through them
-- **Folders** split the table into sections with their own colour, icon and progress bar
-- **Categories**: add, rename or remove up to 12. Each one gets its own Rank and Score column
-- Drag rows to reorder, drag column headers to move columns
-- Search, a Filter panel and a multi-key Sort panel
-- Undo and redo everything, including Clear all. Right-click Undo to jump back several steps
+- Five modes: Normal, Select, Edit, Order and Playlist
+- Edit works like a spreadsheet. Arrow keys move between cells, a pasted block fills across and down, and odd cells get flagged
+- Playlist lines up today's stages with their goals. Press Play and work through them one by one
+- Folders split the table into sections, each with its own colour, icon and progress bar
+- Drag rows to reorder them and column headers to move columns
+- Search, filter, and sort by as many keys as you need
+- Undo works on everything, even Clear all. Right-click Undo to jump back several steps
+
+</details>
+
+<details>
+<summary><b>Getting stages in</b></summary>
+<br>
+
+- Paste a list of names, or a table copied from a sheet with each region's ID
+- Scan reads screenshots of a stage's page: ID, players, time, genre, title, description and cover
+- Live scan watches a window and picks up new stage pages as you open them
+- Recall finds stages you worked on in an older bookmark and brings that work back
 
 </details>
 
@@ -111,12 +121,12 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 <summary><b>Stage details</b></summary>
 <br>
 
-- Tags for Region, Players, Duration, Genre, Checkmark and Progress
-- Link, Note and Feedback, each with its own window. Notes and feedback have a formatting toolbar
-- English translations beside each name, from brackets, an offline translation pack or an online search
-- Emotes picked from the stage name, with over 1,000 to choose from
-- Covers for each stage, uploaded or taken from Scan
-- Hold a tag and slide to a choice to set it fast
+- Tags for region, players, duration, genre, checkmark and progress
+- Links, notes and feedback, each in its own window. Notes and feedback have a formatting toolbar
+- An English name next to each stage, from its brackets, an offline translation pack or an online search
+- An emote for every stage, picked from its name, out of more than 1,000
+- A cover picture per stage, uploaded or taken from Scan
+- Hold a tag and slide to a choice to set it quickly
 
 </details>
 
@@ -124,10 +134,11 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 <summary><b>Ranking and scoring</b></summary>
 <br>
 
-- Grades with rank ranges you drag to adjust
-- Auto-rank by score, strict progression, cap ranks at max rank
-- Allow duplicate ranks or scores, or keep rank and score independent
-- Progress bars for checked and scored stages, plus a stats row by region, players, genre and time
+- Up to 12 categories, each with its own Rank and Score column
+- Grades with rank ranges you can drag to adjust
+- Auto-rank by score, strict progression and a rank cap
+- Duplicate ranks or scores if you want them, or rank and score kept independent
+- Progress bars for checked and scored stages, and a stats row by region, players, genre and time
 
 </details>
 
@@ -135,11 +146,9 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 <summary><b>Session tools</b></summary>
 <br>
 
-- **Timer**: pick a length or run until a time
-- **Calculation**: earn rules and rule sets, with starter rules to build from
-- **Bookmarks**: an Auto slot plus 50 saved slots, with auto-save
-- **Recall**: bring back past work from an older bookmark, matched by ID
-- **Workspace**: apps that work on your table, and you can add your own
+- Timer: set a length or count down to a time
+- Calculation: earn rules and rule sets, with starter rules to build from
+- Workspace: apps that work on your table (Grade, Compare, Random pick, Session compare), and you can add your own
 
 </details>
 
@@ -147,12 +156,12 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 <summary><b>Saving and sharing</b></summary>
 <br>
 
-- Copy scores, ranks, names, IDs, notes or everything, ready to paste into a sheet
+- Bookmarks: 50 slots of your own, plus an Auto slot that keeps itself current when Auto-save is on
+- Copy scores, ranks, names, IDs or notes, ready to paste into a sheet
 - Export JSON, TSV, PNG or PDF, with a preview first
-- **Present** mode for a clean view
+- Present mode for a clean view of the table
 - Share settings, layouts and Calculation rules as a code
-- Backup and restore everything in one file
-- **Data file**: keep a synced copy in Google Drive, OneDrive, Dropbox or iCloud
+- Back up everything in one file, or keep a synced copy in Google Drive, OneDrive, Dropbox or iCloud
 
 </details>
 
@@ -160,12 +169,12 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 <summary><b>Make it yours</b></summary>
 <br>
 
-- 34 themes in dark and light, with optional theme personality
+- 34 themes, half dark and half light, with optional theme personality
 - 18 fonts, accent styles and colour scales
-- 10 layouts plus your own, and settings profiles
-- Choose what left and right click do across the table
+- 10 ready-made layouts, your own custom one, and settings profiles
+- Choose what left and right clicks do across the table
 - Drag toolbar buttons to rearrange them
-- Rebind every keyboard shortcut. Touch gestures on phones and tablets
+- Rebind any keyboard shortcut, or use touch gestures on phones and tablets
 
 </details>
 
@@ -184,17 +193,17 @@ Your work saves on its own. Open **Bookmarks** to keep a copy you can come back 
 | Search stages | `Alt` `F` | | Open bookmarks | `Alt` `B` |
 | Open settings | `Ctrl` `,` | | Note window | `Alt` `Shift` `N` |
 
-Every shortcut can be changed in **Settings > Shortcuts**.
+You can change any of them in Settings > Shortcuts.
 
 <br>
 
 ## Your data
 
-Everything saves in your browser on this device. Nothing is uploaded, unless you turn on the online lookups, which send only a stage's name.
+Everything saves in your browser on this device. Nothing is uploaded unless you turn on the online lookups, and those send only a stage's name.
 
-- **Bookmarks** keep copies of your table you can come back to
-- **Settings > Data > Backup** downloads everything in one file for moving to another browser
-- **Settings > Data > Data file** keeps a synced copy in a cloud folder, while the browser stays the main copy
+- Bookmarks keep copies of your table to come back to.
+- Settings > Data > Backup downloads everything in one file, for moving to another browser.
+- Settings > Data > Data file keeps a synced copy in a cloud folder. The browser stays the main copy.
 
 Clearing your browser data removes what's saved, so keep a backup.
 
