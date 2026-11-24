@@ -26,9 +26,12 @@
 
 <br>
 
-Paste a list of stages, then rank them, score them and keep everything about each one in one place.
-The whole tool is a single HTML file that runs in your browser. There's nothing to install and no
-account, and your work stays on your device.
+I made this to keep track of stages in games that have them, like sandbox games where players build
+and share their own. Paste in a list of stages, rank them, score them, and keep notes and details on
+each one in one place.
+
+It's a single HTML file that runs in your browser, so there's nothing to install and no account, and
+your work stays on your device.
 
 <br>
 
