@@ -30,6 +30,14 @@ Paste a list of stages, then rank them, score them and keep everything about eac
 The whole tool is a single HTML file that runs in your browser. There's nothing to install and no
 account, and your work stays on your device.
 
+<details>
+<summary><b>Watch the demo in full quality</b></summary>
+<br>
+
+https://github.com/user-attachments/assets/19661b59-c4a0-4b7b-8cb3-b4f1b7c9def4
+
+</details>
+
 <br>
 
 ## Highlights
@@ -209,6 +217,8 @@ Clearing your browser data removes what's saved, so keep a backup.
 <br>
 
 ## Versions
+
+Every change, version by version, is in the [changelog](CHANGELOG.md).
 
 | Version | Notes |
 |---|---|
