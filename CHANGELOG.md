@@ -7,7 +7,7 @@ Every version of Snomnom Organizer Tool, newest first. Older versions can still 
 A full redesign from scratch, built on one design system. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0)
 
 ### Redesign
-- One design system: every button, switch, toggle, dropdown, tag, chip, card, panel and close button comes from one shared part, so they look and behave the same everywhere
+- Buttons, switches, dropdowns, tags, cards and panels all share one set of styles
 - Frosted, see-through panels and popups with content in cards
 - Toolbar laid out on cards
 - Table columns in groups: Tags, Extras, Status, Rank, Score, Info, Tool
@@ -90,7 +90,7 @@ A full redesign from scratch, built on one design system. [Release notes](https:
 - Paste box also takes screenshots; Paste button
 - File menu regrouped (Export, Import & share); each export has its own preview button
 - Region priority replaces region cycle order (new stages get your top region)
-- Click actions (was Tag clicks) cover Name, ID, Emote, Translation, Checkmark, Progress, Link, Note and Feedback, not just the four tags; Region, Players and Duration open their popup on left click by default
+- Click actions (was Tag clicks) now also cover Name, ID, Emote, Translation, Checkmark, Progress, Link, Note and Feedback; Region, Players and Duration open their popup on left click by default
 - Hold to pick (was Hold-down popup): Ring, Arc, Strip or List styles, now also for Checkmark, Progress and Emote; hold delay and ring size settings
 - Shortcuts grouped (Edit, Modes, Actions, More)
 - Timer: pick a length (5m to 2h) or run until a time
