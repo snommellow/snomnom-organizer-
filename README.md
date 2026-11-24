@@ -215,7 +215,9 @@ Clearing your browser data removes what's saved, so keep a backup.
 | [**3.0**](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0) | Snomnom Organizer Tool. A full redesign from scratch with new modes, Scan, Workspace, Folders, translation and more. |
 | [2.1](https://snommellow.github.io/snomnom-organizer-/v2.1.html) | Snomnom Rank Tool. Genre, Duration and Note tags, Timer, Calculation, Bookmarks, profiles and layouts. |
 | [2.0](https://snommellow.github.io/snomnom-organizer-/v2.0.html) | Snomnom Rank Tool. Rebuilt from the spreadsheet as a single HTML file. |
-| 1.x | The original Excel spreadsheet. |
+| [1.2](versions/Snomnom_Rank_1.2.xlsx) | Excel. Checks moved under the grades, and the next stage to score is highlighted. |
+| [1.1](versions/Snomnom_Rank_1.1.xlsx) | Excel. One check per category for duplicates, wrong grades, order and missing scores. |
+| [1.0](versions/Snomnom_Rank_1.0.xlsx) | Excel. The original spreadsheet: ranks in, grades out, with a check on every row. |
 
 <br>
 
