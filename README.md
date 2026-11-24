@@ -20,7 +20,7 @@
 
 <br>
 
-<img src="docs/images/demo.gif" alt="Switching between Normal, Order and Select, opening a stage page, then the Grade app in Workspace" width="100%">
+<img src="docs/images/demo.gif" alt="Switching modes, opening a stage page, then opening Workspace" width="100%">
 
 </div>
 
