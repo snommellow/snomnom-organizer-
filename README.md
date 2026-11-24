@@ -6,11 +6,10 @@
 
 <br>
 
-![Version](https://img.shields.io/badge/version-3.0-a78bfa?style=for-the-badge)
+[![Release](https://img.shields.io/github/v/release/snommellow/snomnom-organizer-?style=for-the-badge&label=version&color=a78bfa)](https://github.com/snommellow/snomnom-organizer-/releases/latest)
 ![Single file](https://img.shields.io/badge/single-HTML%20file-22d3ee?style=for-the-badge)
 ![No install](https://img.shields.io/badge/no-install-34d399?style=for-the-badge)
-![Themes](https://img.shields.io/badge/themes-34-fbbf24?style=for-the-badge)
-![License](https://img.shields.io/badge/license-MIT-94a3b8?style=for-the-badge)
+[![License](https://img.shields.io/badge/license-MIT-94a3b8?style=for-the-badge)](LICENSE)
 
 **[Open the tool](https://snommellow.github.io/snomnom-organizer-/)** &nbsp;·&nbsp;
 [Highlights](#highlights) &nbsp;·&nbsp;
