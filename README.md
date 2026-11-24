@@ -14,7 +14,7 @@
 **[Open the tool](https://snommellow.github.io/snomnom-organizer-/)** &nbsp;·&nbsp;
 [Highlights](#highlights) &nbsp;·&nbsp;
 [Quick start](#quick-start) &nbsp;·&nbsp;
-[Features](#features) &nbsp;·&nbsp;
+[Features](#what-else-it-does) &nbsp;·&nbsp;
 [Shortcuts](#keyboard-shortcuts) &nbsp;·&nbsp;
 [Your data](#your-data)
 
@@ -56,19 +56,19 @@ account, and your work stays on your device.
     <td width="50%" valign="top">
       <img src="docs/images/workspace.png" alt="The Grade app in Workspace">
       <h3>Workspace</h3>
-      Apps that work on your table. Grade, Compare, Random pick and Session compare come built in.
+      Small apps that run on your table: Grade, Compare, Random pick and Session compare.
     </td>
   </tr>
   <tr>
     <td width="50%" valign="top">
       <img src="docs/images/themes.png" alt="The Appearance settings with fonts and themes">
-      <h3>Make it yours</h3>
+      <h3>Themes and fonts</h3>
       34 themes, 18 fonts, accent styles, colour scales and a custom pointer.
     </td>
     <td width="50%" valign="top">
       <img src="docs/images/light.png" alt="The table in the Light theme">
       <h3>Light and dark</h3>
-      17 dark themes and 17 light ones. Switch any time from Settings.
+      Half the themes are light. This is the plain Light one.
     </td>
   </tr>
 </table>
@@ -89,93 +89,19 @@ If the page closes, your table is still there when you come back. Save it to a b
 
 <br>
 
-## Features
+## What else it does
 
-<details open>
-<summary><b>Table and modes</b></summary>
-<br>
+- Five modes: Normal, Select, Edit, Order and Playlist. Edit works like a spreadsheet, with arrow keys and paste-to-fill
+- Folders to split a long table into sections
+- Up to 12 categories, each with its own rank and score column, and grade ranges you can drag
+- Tags for region, players, duration, genre, checkmark and progress, plus links, notes and feedback
+- English names for stages in other languages, from brackets, a translation pack or an online lookup
+- Recall, which pulls past work on a stage back out of an older bookmark
+- Timer, Calculation (earn rules), and Workspace apps like Grade, Compare and Random pick
+- 50 bookmark slots, exports to JSON, TSV, PNG and PDF, and a Present view
+- 34 themes and 18 fonts, rebindable shortcuts, and touch gestures on phones
 
-- Five modes: Normal, Select, Edit, Order and Playlist
-- Edit works like a spreadsheet. Arrow keys move between cells, a pasted block fills across and down, and odd cells get flagged
-- Playlist lines up today's stages with their goals. Press Play and work through them one by one
-- Folders split the table into sections, each with its own colour, icon and progress bar
-- Drag rows to reorder them and column headers to move columns
-- Search, filter, and sort by as many keys as you need
-- Undo works on everything, even Clear all. Right-click Undo to jump back several steps
-
-</details>
-
-<details>
-<summary><b>Getting stages in</b></summary>
-<br>
-
-- Paste a list of names, or a table copied from a sheet with each region's ID
-- Scan reads screenshots of a stage's page: ID, players, time, genre, title, description and cover
-- Live scan watches a window and picks up new stage pages as you open them
-- Recall finds stages you worked on in an older bookmark and brings that work back
-
-</details>
-
-<details>
-<summary><b>Stage details</b></summary>
-<br>
-
-- Tags for region, players, duration, genre, checkmark and progress
-- Links, notes and feedback, each in its own window. Notes and feedback have a formatting toolbar
-- An English name next to each stage, from its brackets, an offline translation pack or an online search
-- An emote for every stage, picked from its name, out of more than 1,000
-- A cover picture per stage, uploaded or taken from Scan
-- Hold a tag and slide to a choice to set it quickly
-
-</details>
-
-<details>
-<summary><b>Ranking and scoring</b></summary>
-<br>
-
-- Up to 12 categories, each with its own Rank and Score column
-- Grades with rank ranges you can drag to adjust
-- Auto-rank by score, strict progression and a rank cap
-- Duplicate ranks or scores if you want them, or rank and score kept independent
-- Progress bars for checked and scored stages, and a stats row by region, players, genre and time
-
-</details>
-
-<details>
-<summary><b>Session tools</b></summary>
-<br>
-
-- Timer: set a length or count down to a time
-- Calculation: earn rules and rule sets, with starter rules to build from
-- Workspace: apps that work on your table (Grade, Compare, Random pick, Session compare), and you can add your own
-
-</details>
-
-<details>
-<summary><b>Saving and sharing</b></summary>
-<br>
-
-- Bookmarks: 50 slots of your own, plus an Auto slot that keeps itself current when Auto-save is on
-- Copy scores, ranks, names, IDs or notes, ready to paste into a sheet
-- Export JSON, TSV, PNG or PDF, with a preview first
-- Present mode for a clean view of the table
-- Share settings, layouts and Calculation rules as a code
-- Back up everything in one file, or keep a synced copy in Google Drive, OneDrive, Dropbox or iCloud
-
-</details>
-
-<details>
-<summary><b>Make it yours</b></summary>
-<br>
-
-- 34 themes, half dark and half light, with optional theme personality
-- 18 fonts, accent styles and colour scales
-- 10 ready-made layouts, your own custom one, and settings profiles
-- Choose what left and right clicks do across the table
-- Drag toolbar buttons to rearrange them
-- Rebind any keyboard shortcut, or use touch gestures on phones and tablets
-
-</details>
+The [changelog](CHANGELOG.md) has the full list.
 
 <br>
 
@@ -209,8 +135,6 @@ Clearing your browser data removes what's saved, so keep a backup.
 <br>
 
 ## Versions
-
-Every change, version by version, is in the [changelog](CHANGELOG.md).
 
 | Version | Notes |
 |---|---|

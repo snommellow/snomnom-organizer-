@@ -2,7 +2,7 @@
 
 Every version of Snomnom Organizer Tool, newest first. Older versions can still be opened or downloaded from the [Versions](README.md#versions) table.
 
-## 3.0 — Snomnom Organizer Tool
+## 3.0 (Snomnom Organizer Tool)
 
 A full redesign from scratch, built on one design system. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0)
 
@@ -114,7 +114,7 @@ A full redesign from scratch, built on one design system. [Release notes](https:
 - File menu: Export scores only (TSV download); copying scores moved to the Copy menu
 - Renamed from Snomnom Rank Tool to Snomnom Organizer Tool
 
-## 2.1 — Snomnom Rank Tool
+## 2.1 (Snomnom Rank Tool)
 
 What 2.1 included:
 
@@ -142,17 +142,17 @@ What 2.1 included:
 - Log with type filters, Help (Guide, Contact), Erase all data
 - 24 themes, 18 fonts
 
-## 2.0 — Snomnom Rank Tool
+## 2.0 (Snomnom Rank Tool)
 
 Rebuilt from the spreadsheet as a single HTML file that runs in any browser. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/Release)
 
-## 1.2 — Excel
+## 1.2 (Excel)
 - Overall Validation moved under the grade columns, with shorter messages (Wrong grade at: 3, 5 / Out of order: 2 & 3) and status marks
 - Next to score: in each of your score columns, the best-ranked stage still missing a score is highlighted
 - Missing Rank Numbers rewritten with simpler formulas
 - Helper columns listing the missing ranks, and a named range for them
 
-## 1.1 — Excel
+## 1.1 (Excel)
 - Grade labels reworded (S+ (100%–80%), A+ (79%–60%) and so on)
 - The per-row Error column is replaced by an Overall Validation for each category, under the score columns. In order it checks: waiting for input, rank duplicates, score duplicates, wrong grade at a rank, ranks out of order, missing score, then All Good
 - Missing Rank Numbers for each category, saying All ranks present when complete
@@ -160,7 +160,7 @@ Rebuilt from the spreadsheet as a single HTML file that runs in any browser. [Re
 - Fix: Your Tech Rank cells now get the grade tint like Interest and Art (1.0 only tinted those two)
 - One sheet, named Ranking
 
-## 1.0 — Excel
+## 1.0 (Excel)
 - One sheet per session with 20 stage rows: No., Stage Name, Main Server, Check?
 - Enter Interest, Art and Tech ranks; the grade fills in by itself: ranks 1–2 S+ (80–100%), 3–6 A+ (60–79%), 7–12 B+ (40–59%), 13–20 C+ (below 40%)
 - Your Interest, Art and Tech score columns, and a Feedback column
