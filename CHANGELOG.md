@@ -2,6 +2,22 @@
 
 Every version of Snomnom Organizer Tool, newest first. Older versions can still be opened or downloaded from the [Versions](README.md#versions) table.
 
+## 3.0.1
+
+Fixes for phones and a few look changes. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0.1)
+
+### Phones and tablets
+- A tapped button no longer stays tinted after you lift your finger
+- Tooltips no longer pop up and stick after a tap
+- The paste box drops the keyboard shortcut chip and uses a shorter hint on phones
+- If the clipboard can't be read, the message says to press and hold the box and tap Paste
+- The grades bar keeps the S+ label on narrow screens
+
+### Look
+- Neon preview now matches the table: dark chips with glowing numbers
+- Tinted moved between Neon and Outline in the accent picker
+- Caches in the Data tab storage bar are teal instead of red, so they no longer look like a warning
+
 ## 3.0 (Snomnom Organizer Tool)
 
 A full redesign from scratch, built on one design system. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0)

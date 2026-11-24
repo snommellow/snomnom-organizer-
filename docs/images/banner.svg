@@ -74,12 +74,12 @@
     <text x="78" y="186" font-size="56" font-weight="700" fill="url(#title)">Organizer Tool</text>
     <text x="80" y="228" font-size="20" fill="#94a3b8">Rank, score and organize game stages in one page.</text>
     <g transform="translate(80 252)" font-size="13" font-weight="600">
-      <rect width="62" height="26" rx="13" fill="#a78bfa" fill-opacity="0.16" stroke="#a78bfa" stroke-opacity="0.5"/>
-      <text x="31" y="17.5" fill="#c4b5fd" text-anchor="middle">v3.0</text>
-      <rect x="72" width="112" height="26" rx="13" fill="#22d3ee" fill-opacity="0.12" stroke="#22d3ee" stroke-opacity="0.45"/>
-      <text x="128" y="17.5" fill="#a5f3fc" text-anchor="middle">Single HTML file</text>
-      <rect x="194" width="104" height="26" rx="13" fill="#34d399" fill-opacity="0.12" stroke="#34d399" stroke-opacity="0.45"/>
-      <text x="246" y="17.5" fill="#6ee7b7" text-anchor="middle">Works offline</text>
+      <rect width="74" height="26" rx="13" fill="#a78bfa" fill-opacity="0.16" stroke="#a78bfa" stroke-opacity="0.5"/>
+      <text x="37" y="17.5" fill="#c4b5fd" text-anchor="middle">v3.0.1</text>
+      <rect x="84" width="112" height="26" rx="13" fill="#22d3ee" fill-opacity="0.12" stroke="#22d3ee" stroke-opacity="0.45"/>
+      <text x="140" y="17.5" fill="#a5f3fc" text-anchor="middle">Single HTML file</text>
+      <rect x="206" width="104" height="26" rx="13" fill="#34d399" fill-opacity="0.12" stroke="#34d399" stroke-opacity="0.45"/>
+      <text x="258" y="17.5" fill="#6ee7b7" text-anchor="middle">Works offline</text>
     </g>
   </g>
 </svg>
