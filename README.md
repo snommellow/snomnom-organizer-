@@ -10,6 +10,7 @@
 ![Single file](https://img.shields.io/badge/single-HTML%20file-22d3ee?style=for-the-badge)
 ![No install](https://img.shields.io/badge/no-install-34d399?style=for-the-badge)
 ![Themes](https://img.shields.io/badge/themes-34-fbbf24?style=for-the-badge)
+![License](https://img.shields.io/badge/license-MIT-94a3b8?style=for-the-badge)
 
 **[Open the tool](https://snommellow.github.io/snomnom-organizer-/)** &nbsp;·&nbsp;
 [Highlights](#highlights) &nbsp;·&nbsp;
@@ -207,6 +208,12 @@ Clearing your browser data removes what's saved, so keep a backup.
 | [2.1](https://snommellow.github.io/snomnom-organizer-/v2.1.html) | Snomnom Rank Tool. Genre, Duration and Note tags, Timer, Calculation, Bookmarks, profiles and layouts. |
 | [2.0](https://snommellow.github.io/snomnom-organizer-/v2.0.html) | Snomnom Rank Tool. Rebuilt from the spreadsheet as a single HTML file. |
 | 1.x | The original Excel spreadsheet. |
+
+<br>
+
+## License
+
+Released under the [MIT License](LICENSE).
 
 <br>
 
