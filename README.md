@@ -1,73 +1,213 @@
 <div align="center">
 
-# Snomnom Rank Tool
+<a href="https://snommellow.github.io/snomnom-organizer-/">
+  <img src="docs/images/banner.svg" alt="Snomnom Organizer Tool" width="100%">
+</a>
 
-**Rank, score and organize game stages in one page.**
+<br>
 
-[**Open the tool**](https://snommellow.github.io/snomnom-organizer-/)
+![Version](https://img.shields.io/badge/version-3.0-a78bfa?style=for-the-badge)
+![Single file](https://img.shields.io/badge/single-HTML%20file-22d3ee?style=for-the-badge)
+![No install](https://img.shields.io/badge/no-install-34d399?style=for-the-badge)
+![Themes](https://img.shields.io/badge/themes-34-fbbf24?style=for-the-badge)
 
-![Version](https://img.shields.io/badge/version-2.1-8b5cf6?style=flat-square)
-![Single file](https://img.shields.io/badge/single-HTML%20file-0ea5e9?style=flat-square)
-![No install](https://img.shields.io/badge/no-install%20needed-22c55e?style=flat-square)
-![Saves locally](https://img.shields.io/badge/saves-in%20your%20browser-f59e0b?style=flat-square)
+**[Open the tool](https://snommellow.github.io/snomnom-organizer-/)** &nbsp;·&nbsp;
+[Highlights](#highlights) &nbsp;·&nbsp;
+[Quick start](#quick-start) &nbsp;·&nbsp;
+[Features](#features) &nbsp;·&nbsp;
+[Shortcuts](#keyboard-shortcuts) &nbsp;·&nbsp;
+[Your data](#your-data)
 
-<img src="docs/screenshot.png" alt="The Snomnom Rank Tool with eight ranked and scored stages" width="900">
+<br>
+
+<img src="docs/images/hero.png" alt="The main table with eight ranked and scored stages" width="100%">
 
 </div>
 
----
+<br>
 
-## What it does
+Paste a list of stages, then rank them, score them and keep everything about each one in one place.
+The whole tool is a single HTML file that runs in your browser. There's nothing to install and no
+account, and your work stays on your device.
 
-Paste a list of stages, then rank them, score them and keep notes on each one.
-Everything runs in your browser from a single HTML file. Nothing to install, no account,
-and your work stays on your device.
+<br>
+
+## Highlights
+
+<table>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/images/order.png" alt="Order mode grouping stages by grade">
+      <h3>Order and Grade</h3>
+      Rank one category at a time by dragging, or drop stages into grade lanes to score them.
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/images/stagepage.png" alt="A stage page opened in the table">
+      <h3>Stage page</h3>
+      Click a stage's number and it opens into a page with its tags, scores, note and cover.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/images/scan.png" alt="The Scan panel">
+      <h3>Scan</h3>
+      Drop screenshots of a stage's page. Scan reads the ID, players, time, genre, title and cover.
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/images/workspace.png" alt="The Grade app in Workspace">
+      <h3>Workspace</h3>
+      Apps that work on your table: Grade, Compare, Random pick and Session compare.
+    </td>
+  </tr>
+  <tr>
+    <td width="50%" valign="top">
+      <img src="docs/images/themes.png" alt="The Appearance settings with fonts and themes">
+      <h3>Make it yours</h3>
+      34 themes, 18 fonts, accent styles, colour scales and a custom pointer.
+    </td>
+    <td width="50%" valign="top">
+      <img src="docs/images/light.png" alt="The table in the Light theme">
+      <h3>Light and dark</h3>
+      Every theme is built on the same design system, so everything looks right in each one.
+    </td>
+  </tr>
+</table>
+
+<br>
 
 ## Quick start
 
-1. Open the tool.
-2. Paste stage names into the top box, one per line, and press **Load/Add**.
-   A table copied from a sheet works too: a name, then its NA, EU, Asia and TW IDs.
-3. Click a rank or score cell to fill it in.
-4. Press **Copy scores** to paste the results back into your sheet.
+1. **[Open the tool](https://snommellow.github.io/snomnom-organizer-/)**.
+2. Paste stage names into the top box, one per line, and press **Add**.
+   A table from a sheet works too: a name, then its NA, EU, Asia and TW IDs.
+   You can also paste screenshots, and Scan will read them.
+3. Click a rank or score cell to pick a value.
+4. Turn on the details you need from the **Optional** row: region, players, duration, genre, notes and more.
+5. Press **Copy scores** to paste the results back into your sheet.
+
+Your work saves on its own. Open **Bookmarks** to keep a copy you can come back to.
+
+<br>
 
 ## Features
 
-### Ranking and scoring
-- Modes: **Normal**, **Select**, **Edit**, **Rank** and **Score**
-- Grades with rank ranges, a max rank, and auto-rank by score
-- Strict progression, lock rank when typed, auto-hide overflow
-- Average score column, progress bar and stats row
+<details open>
+<summary><b>Table and modes</b></summary>
+<br>
 
-### Stage details
-- Optional tags: Region, Players, Duration (with a stopwatch), Genre, Checkmark, Feedback, Note and Emote
-- Custom genres, region IDs for NA, EU, Asia and TW/HK/MO
-- Hide stages, hide empty tags, tags in their own column
-- Search by name or ID, filters and multi-key sort
+- **Normal, Select, Edit, Order and Playlist** modes
+- **Edit** works like a spreadsheet: arrow keys move, a pasted block fills across and down, and odd cells are flagged
+- **Playlist**: add stages to Today, set their goals, press Play to work through them
+- **Folders** split the table into sections with their own colour, icon and progress bar
+- **Categories**: add, rename or remove up to 12. Each one gets its own Rank and Score column
+- Drag rows to reorder, drag column headers to move columns
+- Search, a Filter panel and a multi-key Sort panel
+- Undo and redo everything, including Clear all. Right-click Undo to jump back several steps
 
-### Session tools
-- **Timer** with a deadline
-- **Calculation** for earn rules and a running counter
+</details>
+
+<details>
+<summary><b>Stage details</b></summary>
+<br>
+
+- Tags for Region, Players, Duration, Genre, Checkmark and Progress
+- Link, Note and Feedback, each with its own window. Notes and feedback have a formatting toolbar
+- English translations beside each name, from brackets, an offline translation pack or an online search
+- Emotes picked from the stage name, with over 1,000 to choose from
+- Covers for each stage, uploaded or taken from Scan
+- Hold a tag and slide to a choice to set it fast
+
+</details>
+
+<details>
+<summary><b>Ranking and scoring</b></summary>
+<br>
+
+- Grades with rank ranges you drag to adjust
+- Auto-rank by score, strict progression, cap ranks at max rank
+- Allow duplicate ranks or scores, or keep rank and score independent
+- Progress bars for checked and scored stages, plus a stats row by region, players, genre and time
+
+</details>
+
+<details>
+<summary><b>Session tools</b></summary>
+<br>
+
+- **Timer**: pick a length or run until a time
+- **Calculation**: earn rules and rule sets, with starter rules to build from
 - **Bookmarks**: an Auto slot plus 50 saved slots, with auto-save
-- Undo and redo
+- **Recall**: bring back past work from an older bookmark, matched by ID
+- **Workspace**: apps that work on your table, and you can add your own
 
-### Saving and sharing
-- Copy scores straight into a spreadsheet
+</details>
+
+<details>
+<summary><b>Saving and sharing</b></summary>
+<br>
+
+- Copy scores, ranks, names, IDs, notes or everything, ready to paste into a sheet
 - Export JSON, TSV, PNG or PDF, with a preview first
-- **Present** mode for a clean table view
+- **Present** mode for a clean view
+- Share settings, layouts and Calculation rules as a code
+- Backup and restore everything in one file
+- **Data file**: keep a synced copy in Google Drive, OneDrive, Dropbox or iCloud
 
-### Make it yours
-- 24 themes and 18 fonts
-- 10 layouts, settings profiles and rebindable shortcuts
-- Choose what left and right click do on each tag
+</details>
+
+<details>
+<summary><b>Make it yours</b></summary>
+<br>
+
+- 34 themes in dark and light, with optional theme personality
+- 18 fonts, accent styles and colour scales
+- 10 layouts plus your own, and settings profiles
+- Choose what left and right click do across the table
 - Drag toolbar buttons to rearrange them
+- Rebind every keyboard shortcut. Touch gestures on phones and tablets
+
+</details>
+
+<br>
+
+## Keyboard shortcuts
+
+| Action | Keys | | Action | Keys |
+|---|---|---|---|---|
+| Undo | `Ctrl` `Z` | | Normal mode | `Esc` |
+| Redo | `Ctrl` `Shift` `Z` | | Select mode | `Alt` `S` |
+| Copy all scores | `Ctrl` `Shift` `C` | | Edit mode | `Alt` `E` |
+| Copy row scores | `Alt` `C` | | Playlist mode | `Alt` `P` |
+| Next unfilled score | `Alt` `N` | | Order: next category | `Alt` `R` |
+| Toggle checkmark | `Alt` `K` | | Grade: next category | `Alt` `G` |
+| Search stages | `Alt` `F` | | Open bookmarks | `Alt` `B` |
+| Open settings | `Ctrl` `,` | | Note window | `Alt` `Shift` `N` |
+
+Every shortcut can be changed in **Settings > Shortcuts**.
+
+<br>
 
 ## Your data
 
-The tool saves to your browser's local storage. Clearing your browser data removes it,
-so export a JSON backup now and then. **File > Import JSON** brings it back.
+Everything saves in your browser on this device. Nothing is uploaded, unless you turn on the online lookups, which send only a stage's name.
 
-## Coming next
+- **Bookmarks** keep copies of your table you can come back to
+- **Settings > Data > Backup** downloads everything in one file for moving to another browser
+- **Settings > Data > Data file** keeps a synced copy in a cloud folder, while the browser stays the main copy
 
-**Snomnom Organizer Tool 3.0** is in progress: a full redesign with new modes,
-Scan, a Workspace, folders, translation and much more.
+Clearing your browser data removes what's saved, so keep a backup.
+
+<br>
+
+## Versions
+
+| Version | Notes |
+|---|---|
+| **3.0** | Snomnom Organizer Tool. A full redesign from scratch with new modes, Scan, Workspace, Folders, translation and more. |
+| [2.1](https://snommellow.github.io/snomnom-organizer-/v2.1.html) | Snomnom Rank Tool. Still available at [/v2.1.html](https://snommellow.github.io/snomnom-organizer-/v2.1.html). |
+
+<br>
+
+<div align="center">
+<sub>Made by <a href="https://github.com/snommellow">snommellow</a></sub>
+</div>
