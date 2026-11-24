@@ -1,0 +1,45 @@
+name: Bug report
+description: Something in the tool isn't working right
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: Thanks for reporting this. A few details make it much faster to fix.
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened?
+      description: What did you do, what did you expect, and what happened instead?
+      placeholder: I switched to Order mode and the Int column disappeared.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to repeat it
+      placeholder: |
+        1. Paste these stages...
+        2. Click...
+        3. See...
+  - type: input
+    id: version
+    attributes:
+      label: Version
+      description: Shown at the bottom of Settings.
+      placeholder: "3.0"
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and device
+      placeholder: Chrome on Windows, Safari on iPhone...
+  - type: textarea
+    id: report
+    attributes:
+      label: Bug report from the tool (optional)
+      description: Turn on Debug tools in Help > Contact, then in Settings > Debug press Copy next to Bug report and paste it here. It holds your setup, any errors and your last few actions.
+      render: text
+  - type: textarea
+    id: shots
+    attributes:
+      label: Screenshots (optional)
+      description: Drag images here.

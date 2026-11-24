@@ -1,0 +1,20 @@
+name: Idea or request
+description: Suggest something new or a change to how something works
+labels: [enhancement]
+body:
+  - type: textarea
+    id: idea
+    attributes:
+      label: What would you like?
+      placeholder: A way to...
+    validations:
+      required: true
+  - type: textarea
+    id: why
+    attributes:
+      label: What would it help with?
+      description: What are you trying to do, and what gets in the way today?
+  - type: textarea
+    id: shots
+    attributes:
+      label: Sketches or screenshots (optional)
