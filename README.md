@@ -193,7 +193,7 @@ If the page closes, your table is still there when you come back. Save it to a b
 | Search stages | `Alt` `F` | | Open bookmarks | `Alt` `B` |
 | Open settings | `Ctrl` `,` | | Note window | `Alt` `Shift` `N` |
 
-You can change any of them in Settings > Shortcuts.
+On a Mac, use Option for Alt and Cmd for Ctrl. You can change any of them in Settings > Shortcuts.
 
 <br>
 
