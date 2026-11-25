@@ -1186,7 +1186,7 @@ addEventListener("load",(()=>{const R=renderTable,C=clsAllPops;let pend=null;con
 <script id=data-file-js>/* Data file (Settings > Data): a sync copy of everything this page keeps, in a file you choose (Google Drive, OneDrive, Dropbox or iCloud folder). The browser stays the main copy, so it all works offline; the file catches up when it can. Chrome and Edge on desktop. */
 var _DF_SKIP=/^snomnom_(dev_snap|df_)/;const _DF_META="snomnom_df_meta",_DF_DB="snomnom4_df";let _dfH=null,_dfPerm="",_dfFile=null,_dfMsg="",_dfT=0,_dfPend=null,_dfBusy=!1;
 /* Google Drive: acts like a data file handle, so the data file sync (compare, ask, merge, auto-save, undo) works the same. The copy sits in the app's private folder in your Drive; only this page can see it. */
-const _GD_CLIENT="",_GD_SCOPE="https://www.googleapis.com/auth/drive.appdata",_GD_NAME="snomnom-data.json",_GD_TK="snomnom_gd_token";
+const _GD_CLIENT="205439645553-j4v90msdacfb9tv5vpbl0no77dq73rq8.apps.googleusercontent.com",_GD_SCOPE="https://www.googleapis.com/auth/drive.appdata",_GD_NAME="snomnom-data.json",_GD_TK="snomnom_gd_token";
 let _gdTok=null,_gdTc=null,_gdId="";try{const t=JSON.parse(sessionStorage.getItem(_GD_TK)||"null");t&&t.exp>Date.now()+6e4&&(_gdTok=t)}catch(e){}
 const _gdReady=()=>!!_GD_CLIENT;
 function _gdLib(){return window.google&&google.accounts&&google.accounts.oauth2?Promise.resolve():new Promise(((r,j)=>{const x=document.createElement("script");x.src="https://accounts.google.com/gsi/client",x.async=!0,x.onload=()=>r(),x.onerror=()=>j(new Error("Couldn’t reach Google")),document.head.appendChild(x)}))}
