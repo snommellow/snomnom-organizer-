@@ -66,12 +66,12 @@ your work stays on your device.
     <td width="50%" valign="top">
       <img src="docs/images/themes.png" alt="The Appearance settings with fonts and themes">
       <h3>Themes and fonts</h3>
-      34 themes, 18 fonts, accent styles, colour scales and a custom pointer.
+      34 themes in dark and light, 18 fonts, accent styles, colour scales and a custom pointer.
     </td>
     <td width="50%" valign="top">
-      <img src="docs/images/light.png" alt="The table in the Light theme">
-      <h3>Light and dark</h3>
-      Half the themes are light. This is the plain Light one.
+      <img src="docs/images/edit.png" alt="Edit mode with two repeated ranks marked">
+      <h3>Edit mode</h3>
+      Works like a spreadsheet. Arrow keys move, a pasted block fills in, and repeats or odd values get marked.
     </td>
   </tr>
 </table>
@@ -94,15 +94,16 @@ If the page closes, your table is still there when you come back. Save it to a b
 
 ## What else it does
 
-- Five modes: Normal, Select, Edit, Order and Playlist. Edit works like a spreadsheet, with arrow keys and paste-to-fill
+- Playlist mode: put stages in Today and play through them one at a time, with your time for each
+- Select mode for copying, hiding or deleting several stages at once
 - Folders to split a long table into sections
 - Up to 12 categories, each with its own rank and score column, and grade ranges you can drag
 - Tags for region, players, duration, genre, checkmark and progress, plus links, notes and feedback
 - English names for stages in other languages, from brackets, a translation pack or an online lookup
 - Recall, which pulls past work on a stage back out of an older bookmark
-- Timer, Calculation (earn rules), and Workspace apps like Grade, Compare and Random pick
+- Timer and Calculation (earn rules) for each session
 - 50 bookmark slots, exports to JSON, TSV, PNG and PDF, and a Present view
-- 34 themes and 18 fonts, rebindable shortcuts, and touch gestures on phones
+- Shortcuts you can change, and touch gestures on phones
 
 The [changelog](CHANGELOG.md) has the full list.
 
@@ -141,13 +142,22 @@ Clearing your browser data removes what's saved, so keep a backup.
 
 | Version | Notes |
 |---|---|
-| [**3.0.1**](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0.1) | Fixes for phones, plus a Neon preview that matches the table. |
-| [3.0](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0) | Snomnom Organizer Tool. A full redesign from scratch with new modes, Scan, Workspace, Folders, translation and more. |
+| [**3.0.2**](https://github.com/snommellow/snomnom-organizer-/releases/latest) | Latest. Fixes and polish on top of 3.0, the full redesign with new modes, Scan, Workspace, Folders and translation. Each update is in the [changelog](CHANGELOG.md). |
+
+<details>
+<summary>Older versions</summary>
+
+<br>
+
+| Version | Notes |
+|---|---|
 | [2.1](https://snommellow.github.io/snomnom-organizer-/versions/Snomnom_Rank_2.1.html) | Snomnom Rank Tool. Genre, Duration and Note tags, Timer, Calculation, Bookmarks, profiles and layouts. |
 | [2.0](https://snommellow.github.io/snomnom-organizer-/versions/Snomnom_Rank_2.0.html) | Snomnom Rank Tool. Rebuilt from the spreadsheet as a single HTML file. |
 | [1.2](versions/Snomnom_Rank_1.2.xlsx) | Excel. Checks moved under the grades, and the next stage to score is highlighted. |
 | [1.1](versions/Snomnom_Rank_1.1.xlsx) | Excel. One check per category for duplicates, wrong grades, order and missing scores. |
 | [1.0](versions/Snomnom_Rank_1.0.xlsx) | Excel. The original spreadsheet. Enter ranks and it fills in the grades, with a check on every row. |
+
+</details>
 
 <br>
 

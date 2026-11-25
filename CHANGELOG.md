@@ -2,6 +2,20 @@
 
 Every version of Snomnom Organizer Tool, newest first. Older versions can still be opened or downloaded from the [Versions](README.md#versions) table.
 
+## 3.0.2
+
+Fixes and polish. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0.2)
+
+### Fixes
+- Hide empty now hides every empty optional tag the same way. Region, Checkmark, Progress, Note, Feedback and Link stayed visible before
+- "All scores complete!" and the confetti only show when you fill the last score, not when you open, filter or restore a finished table
+- The page keeps its own colours when the browser has a night mode or forced dark mode on
+
+### Polish
+- Rank and score labels stay readable in every theme and accent style
+- First open is smoother: look-alike icons are worked out ahead of time instead of on your device
+- Code clean-up with no change to how it works
+
 ## 3.0.1
 
 Fixes for phones and a few look changes. [Release notes](https://github.com/snommellow/snomnom-organizer-/releases/tag/v3.0.1)
