@@ -855,16 +855,27 @@ _spPaint=function(){
 _spClose=function(done){"function"==typeof clsAllPops&&clsAllPops();_spTipOff();const tr=document.querySelector("#mtb > tr.sp-dtr"),box=tr&&tr.querySelector(".spk");
  const end=()=>{_spSi=null;_spdAbOn=null;const y=scrollY;_spdRemove();renderTable();Math.abs(scrollY-y)>1&&scrollTo(0,y)};
  if(!box||_spStill()||!box.animate){end();return void(done&&done())}if(tr._closing)return;tr._closing=1;
- /* the opening played backwards: same length and curve; the card folds back into its row, the cover eases out of its zoom,
-    the parts leave in reverse order and the rows below glide back with it */
- const E=_SPD_E,D=540,si=tr.dataset.for,hid=tr.previousElementSibling,h0=hid?hid.getBoundingClientRect().height:0,H=tr.getBoundingClientRect().height+h0,bh=box.getBoundingClientRect().height,rowH=+tr.dataset.rh||34,an=[];
- const parts=[...tr.querySelectorAll(".spk-nm,.spk-id,.spk-a>*,.spk-s,.spk-stt>*,.spk-sc>*,.spk-tl,.spk-rn,.spk-st,.spk-ab")].reverse();
- parts.forEach((el,k)=>{const wrap=el.matches(".spk-tl,.spk-rn,.spk-st,.spk-ab");an.push(el.animate([{opacity:1,transform:"none"},{opacity:0,transform:wrap?"none":"translateY(8px)"}],{duration:wrap?220:300,delay:wrap?0:Math.min(160,14*k),easing:E,fill:"forwards"}))});
- an.push(box.animate([{clipPath:"inset(0 0 0px 0 round 0)"},{clipPath:"inset(0 0 "+Math.max(0,bh-rowH)+"px 0 round 0)"}],{duration:D,easing:E,fill:"forwards"}));an.push(box.animate([{opacity:1},{opacity:1,offset:.45},{opacity:0}],{duration:D,easing:"ease-in-out",fill:"forwards"}));
- const cv=box.querySelector(".spk-cv");cv&&(an.push(cv.animate([{opacity:1},{opacity:1,offset:.25},{opacity:0}],{duration:D,easing:E,fill:"forwards"})),an.push(cv.animate([{transform:"none"},{transform:"scale(1.06)"}],{duration:D,easing:E,fill:"forwards",composite:"add"})));
- const below=_spdBelow(tr);{const ft=document.getElementById("stats-tfoot");ft&&ft.getClientRects().length&&below.push(ft)}below.forEach(r=>an.push(r.animate([{transform:"none"},{transform:"translateY("+(rowH-H)+"px)"}],{duration:D,easing:E,fill:"forwards"})));
- let fin=0;const finish=()=>{if(fin++)return;end();an.forEach(a=>a.cancel());{const ft=document.getElementById("stats-tfoot");ft&&ft.getAnimations().forEach(x=>x.cancel())}const row=document.querySelector('#mtb > tr[data-si="'+si+'"]');row&&[...row.children].forEach(td=>td.animate([{opacity:0},{opacity:1}],{duration:240,easing:"ease-out"}));"function"==typeof _crLayout&&_crLayout();done&&done()};
- Promise.all(an.map(a=>a.finished.catch(()=>0))).then(finish)};
+ /* a real morph: each part of the row glides from its place in the card to its place in the row, the cover shrinks into the
+    row's own cover strip, and the rows and footer below glide up. The row is never empty. */
+ const E=_SPD_E,D=520,si=tr.dataset.for,SEL=".snm,.srv,.ictag,.trtag,.rtag,.ptag,.drtag,.grtag,.ntd,.pgp,.ctag,.rnchip,.tl-b,.ec";
+ const key=(el,n)=>{const c=el.closest("[id^=td-]");return c&&el.matches(".ec")?"#"+c.id:[...el.classList].filter(x=>!/^(pic|on|em|nv|wait)$/.test(x)).sort().join(".")+"@"+n};
+ const old=new Map,cnt={};tr.querySelectorAll(SEL).forEach(el=>{const k0=[...el.classList].filter(x=>!/^(pic|on|em|nv|wait)$/.test(x)).sort().join(".");cnt[k0]=(cnt[k0]||0)+1;const r=el.getBoundingClientRect();r.width&&old.set(key(el,cnt[k0]),r)});
+ const br=box.getBoundingClientRect(),cvEl=box.querySelector(".spk-cv"),g2=cvEl?getComputedStyle(cvEl):null,img=g2&&g2.backgroundImage||"none",bgb=getComputedStyle(box).backgroundImage;
+ const snap=_spdSnap(),ft=document.getElementById("stats-tfoot"),ft0=ft&&ft.getClientRects().length?ft.getBoundingClientRect().top:null;
+ end();
+ const row=document.querySelector('#mtb > tr[data-si="'+si+'"]');if(!row)return void(done&&done());
+ ft&&ft.getAnimations().forEach(x=>x.cancel());
+ _spdFlip(snap,E,D);if(ft&&null!=ft0){const d=ft0-ft.getBoundingClientRect().top;Math.abs(d)>.5&&ft.animate([{transform:"translateY("+d+"px)"},{transform:"none"}],{duration:D,easing:E})}
+ const cnt2={};row.querySelectorAll(SEL).forEach(el=>{const k0=[...el.classList].filter(x=>!/^(pic|on|em|nv|wait)$/.test(x)).sort().join(".");cnt2[k0]=(cnt2[k0]||0)+1;const o=old.get(key(el,cnt2[k0])),r=el.getBoundingClientRect();if(!r.width)return;
+  if(o){const dx=o.left-r.left,dy=o.top-r.top,sx=o.height&&r.height?Math.max(.5,Math.min(2,o.height/r.height)):1;el.animate([{transform:"translate("+dx+"px,"+dy+"px) scale("+sx+")",transformOrigin:"left top"},{transform:"none",transformOrigin:"left top"}],{duration:D,easing:E})}
+  else el.animate([{opacity:0},{opacity:0,offset:.4},{opacity:1}],{duration:D,easing:"ease-out"})});
+ /* the cover: a plain layer behind the row that shrinks from the card to the row's cover strip */
+ const tds=row.querySelector("td.tds")||row.querySelector("td"),rr=(tds||row).getBoundingClientRect(),fr=row.getBoundingClientRect();
+ const lay=document.createElement("div");lay.className="spk-morph";Object.assign(lay.style,{position:"fixed",left:br.left+"px",top:br.top+"px",width:br.width+"px",height:br.height+"px",borderRadius:"12px",overflow:"hidden",pointerEvents:"none",zIndex:"0",backgroundImage:"none"!==img?img:bgb,backgroundSize:"cover",backgroundPosition:"center 30%"});
+ document.body.appendChild(lay);const tw=row.closest(".tw-inner,.tw")||document.body;tw.style.isolation||(tw.dataset.spIso=1,tw.style.isolation="isolate");
+ row.style.position="relative";row.style.zIndex="1";
+ const a=lay.animate([{left:br.left+"px",top:br.top+"px",width:br.width+"px",height:br.height+"px",borderRadius:"12px",opacity:1},{opacity:.85,offset:.55},{left:fr.left+"px",top:fr.top+"px",width:rr.right-fr.left+"px",height:fr.height+"px",borderRadius:"0px",opacity:0}],{duration:D,easing:E,fill:"forwards"});
+ a.finished.catch(()=>0).then(()=>{lay.remove();row.style.position="";row.style.zIndex="";tw.dataset.spIso&&(tw.style.isolation="",delete tw.dataset.spIso);"function"==typeof _crLayout&&_crLayout();done&&done()})};
 _spToggle=function(e){if(!_mNorm()||document.body.classList.contains("pres-mode"))return;if(_spSi===e)return void _spClose();
  _spTipOff();"undefined"!=typeof _ftt&&_ftt.hide();"function"==typeof clsAllPops&&clsAllPops();
  const had=document.querySelector("#mtb > tr.sp-dtr");_spdFlipMap=!_spStill()?_spdSnap():null;_spSi=e;_spFresh=!0;
