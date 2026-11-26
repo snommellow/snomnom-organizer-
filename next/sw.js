@@ -2,7 +2,7 @@
    (so updates show right away) and falls back to the saved copy when offline.
    Fonts and libraries from other sites are served from the saved copy and
    refreshed in the background. */
-const CACHE = "snomnom-4";
+const CACHE = "snomnom-5";
 const CORE = ["./", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {
@@ -19,8 +19,26 @@ self.addEventListener("activate", e => {
 
 self.addEventListener("fetch", e => {
   const req = e.request;
-  if (req.method !== "GET") return;
   const url = new URL(req.url);
+  // Shared from the phone's Share menu: keep what was shared, then open the page to pick it up
+  if (req.method === "POST" && url.origin === location.origin && url.pathname.endsWith("/share")) {
+    e.respondWith((async () => {
+      try {
+        const fd = await req.formData(), c = await caches.open("snomnom-share");
+        const meta = { title: fd.get("title") || "", text: fd.get("text") || "", url: fd.get("url") || "", files: [] };
+        const files = fd.getAll("files").filter(f => f && typeof f !== "string");
+        for (let i = 0; i < files.length; i++) {
+          const f = files[i], k = "./shared-file-" + Date.now() + "-" + i;
+          await c.put(k, new Response(f, { headers: { "content-type": f.type || "application/octet-stream", "x-name": encodeURIComponent(f.name || "shared") } }));
+          meta.files.push(k);
+        }
+        await c.put("./shared-meta", new Response(JSON.stringify(meta), { headers: { "content-type": "application/json" } }));
+      } catch (err) {}
+      return Response.redirect("./?shared=1", 303);
+    })());
+    return;
+  }
+  if (req.method !== "GET") return;
   // Sign-in and Drive calls always go to the network
   if (/(^|\.)googleapis\.com$|accounts\.google\.com$/.test(url.hostname) && !/fonts\.googleapis\.com$/.test(url.hostname)) return;
 
