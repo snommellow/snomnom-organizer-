@@ -853,13 +853,22 @@ _spPaint=function(){
  else{_spdFlipMap=null;crl()}
 };
 _spClose=function(done){"function"==typeof clsAllPops&&clsAllPops();_spTipOff();const tr=document.querySelector("#mtb > tr.sp-dtr"),box=tr&&tr.querySelector(".spk");
- const fin=anims=>{_spSi=null;_spdAbOn=null;const y=scrollY;_spdRemove();renderTable();(anims||[]).forEach(a=>a.cancel());Math.abs(scrollY-y)>1&&scrollTo(0,y);done&&done()};
- if(!box||_spStill()||!box.animate)return fin();if(tr._closing)return;tr._closing=1;
- const E="cubic-bezier(.4,0,.2,1)",D=360,tdp=tr.firstElementChild,H=tr.getBoundingClientRect().height,rowH=Math.min(H,+tr.dataset.rh||34),bh=box.getBoundingClientRect().height,cut=Math.max(0,bh-(rowH-(H-bh))),an=[];
- tr.querySelectorAll(".spk-st,.spk-tl,.spk-id").forEach(el=>an.push(el.animate([{opacity:1},{opacity:0}],{duration:150,fill:"forwards"})));
- an.push(box.animate([{clipPath:"inset(0 0 0px 0)"},{clipPath:"inset(0 0 "+cut+"px 0)",opacity:0}],{duration:D,easing:E,fill:"forwards"}));
- _spdBelow(tr).forEach(r=>an.push(r.animate([{transform:"none"},{transform:"translateY("+(rowH-H)+"px)"}],{duration:D,easing:E,fill:"forwards"})));
- an[an.length-1].onfinish=()=>fin(an)};
+ const end=()=>{_spSi=null;_spdAbOn=null;const y=scrollY;_spdRemove();renderTable();Math.abs(scrollY-y)>1&&scrollTo(0,y)};
+ if(!box||_spStill()||!box.animate){end();return void(done&&done())}if(tr._closing)return;tr._closing=1;
+ /* morph: put the real row back now, then shrink a copy of the card onto it while the rows below glide up */
+ const r0=box.getBoundingClientRect(),snap=_spdSnap(),si=tr.dataset.for,ghost=box.cloneNode(!0);
+ ghost.querySelectorAll("[id]").forEach(e=>e.removeAttribute("id"));
+ const hold=document.createElement("div");hold.className=tr.className+" spk-ghost";const cs=getComputedStyle(box);["--sp-img","--sp-c"].forEach(v=>{const x=tr.style.getPropertyValue(v);x&&hold.style.setProperty(v,x)});hold.style.setProperty("--card-row",cs.getPropertyValue("--card-row")||getComputedStyle(tr.firstElementChild).backgroundColor);
+ Object.assign(hold.style,{position:"fixed",left:r0.left+"px",top:r0.top+"px",width:r0.width+"px",height:r0.height+"px",margin:"0",zIndex:"60",pointerEvents:"none",display:"block"});
+ ghost.style.height="100%";hold.appendChild(ghost);document.body.appendChild(hold);
+ {const c0=box.querySelector(".spk-cv"),c1=ghost.querySelector(".spk-cv");c0&&c1&&(c1.style.animationDelay=c0.style.animationDelay)}
+ end();
+ const row=document.querySelector('#mtb > tr[data-si="'+si+'"]'),rr=row?row.getBoundingClientRect():{top:r0.top,height:34},E=_SPD_E,D=420;
+ _spdFlip(snap,E,D);
+ const dy=rr.top-r0.top,keep=Math.max(0,r0.height-rr.height);
+ const a=hold.animate([{clipPath:"inset(0 0 0 0 round 12px)",transform:"none",opacity:1},{clipPath:"inset(0 0 "+keep*.55+"px 0 round 12px)",opacity:.85,offset:.45},{clipPath:"inset(0 0 "+keep+"px 0 round 10px)",transform:"translateY("+dy+"px)",opacity:0}],{duration:D,easing:E,fill:"forwards"});
+ row&&row.animate([{opacity:.25},{opacity:1}],{duration:D*.8,delay:D*.2,easing:"ease-out",fill:"backwards"});
+ a.onfinish=()=>{hold.remove();"function"==typeof _crLayout&&_crLayout();done&&done()}};
 _spToggle=function(e){if(!_mNorm()||document.body.classList.contains("pres-mode"))return;if(_spSi===e)return void _spClose();
  _spTipOff();"undefined"!=typeof _ftt&&_ftt.hide();"function"==typeof clsAllPops&&clsAllPops();
  const had=document.querySelector("#mtb > tr.sp-dtr");_spdFlipMap=!_spStill()?_spdSnap():null;_spSi=e;_spFresh=!0;
