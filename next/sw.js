@@ -1,8 +1,8 @@
 /* Keeps the tool working offline. The page itself is fetched fresh when online
    (so updates show right away) and falls back to the saved copy when offline.
    Fonts and libraries from other sites are served from the saved copy and
-   refreshed in the background. */
-const CACHE = "snomnom-5";
+   refreshed in the background. Relay answers are never saved here. */
+const CACHE = "snomnom-6";
 const CORE = ["./", "./manifest.webmanifest", "./icon.svg", "./icon-192.png", "./icon-512.png"];
 
 self.addEventListener("install", e => {
@@ -12,7 +12,7 @@ self.addEventListener("install", e => {
 self.addEventListener("activate", e => {
   e.waitUntil(
     caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
+      .then(keys => Promise.all(keys.filter(k => k !== CACHE && k !== "snomnom-share").map(k => caches.delete(k))))
       .then(() => self.clients.claim())
   );
 });
@@ -39,6 +39,10 @@ self.addEventListener("fetch", e => {
     return;
   }
   if (req.method !== "GET") return;
+  // Only web requests (a browser extension's own requests can't be saved)
+  if (url.protocol !== "https:" && url.protocol !== "http:") return;
+  // Fetch's relay always goes to the network: a saved answer would hide new stage info
+  if (/\.workers\.dev$/.test(url.hostname)) return;
   // Sign-in and Drive calls always go to the network
   if (/(^|\.)googleapis\.com$|accounts\.google\.com$/.test(url.hostname) && !/fonts\.googleapis\.com$/.test(url.hostname)) return;
 
