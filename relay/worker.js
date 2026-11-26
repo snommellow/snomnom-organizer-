@@ -56,7 +56,7 @@ export function parse(html, id, region) {
     recommendation: (L.stats && L.stats.recommendation) ?? null,
     rank: L.rank || null,
     created: L.created_at || null, creator: (L.creator && typeof L.creator === "object" && String(L.creator.uid ?? L.creator.id ?? L.creator.user_id ?? "")) || null,
-    seen: Object.fromEntries((o.recommendations || []).filter(x => x && x.guid && x.player_count && x.player_count.length).map(x => [String(x.guid), x.player_count.map(String)])), ids, url: "https://miliastra.world/levels/" + id + "?region=" + region,
+    seen: Object.fromEntries((o.recommendations || []).filter(x => x && x.guid && x.player_count && x.player_count.length).map(x => [String(x.guid), x.player_count.map(String)])), comments: ((o.initialComments && o.initialComments.data) || []).slice(0, 12).map(c => ({ u: (c.user && c.user.username) || "", av: (c.user && /^https:\/\//.test(c.user.avatar_url || "") && c.user.avatar_url) || "", t: String(c.content || "").slice(0, 600), r: !!c.is_recommended, l: +c.like_count || 0, at: c.created_at || "" })), commentsTotal: (o.initialComments && o.initialComments.total) || ((o.initialComments && o.initialComments.data) || []).length, ids, url: "https://miliastra.world/levels/" + id + "?region=" + region,
     checked: new Date().toISOString(),
   };
 }
@@ -71,7 +71,7 @@ export function ranks(html) { const f = flight(html), out = {}; const re = /"gui
     const cm = u.pathname.match(/^\/creator\/(\d{3,14})$/); if (cm) { const pg = await fetch("https://miliastra.world/creators/" + cm[1], { headers: { "User-Agent": "SnomnomOrganizerRelay/1.0 (+https://snommellow.github.io/snomnom-organizer-/; one page per request, cached a week)", "Accept": "text/html" } }); if (pg.status === 404) return json({ seen: {} }, 200, h); if (!pg.ok) return json({ error: "miliastra.world answered " + pg.status }, 502, h); return json({ seen: ranks(await pg.text()), checked: new Date().toISOString() }, 200, h); } if (u.pathname === "/rankings") { const rg = (u.searchParams.get("region") || "na").toLowerCase().replace(/[^a-z]/g, "") || "na"; const pg = await fetch("https://miliastra.world/rankings/hot?region=" + rg, { headers: { "User-Agent": "SnomnomOrganizerRelay/1.0 (+https://snommellow.github.io/snomnom-organizer-/; one page per request, cached a day)", "Accept": "text/html" } }); if (!pg.ok) return json({ error: "miliastra.world answered " + pg.status }, 502, h); return json({ seen: ranks(await pg.text()), checked: new Date().toISOString() }, 200, { ...h, "Cache-Control": "public, max-age=" + DAY }); } const m = u.pathname.match(/^\/level\/(\d{6,14})$/);
     if (!m) return json({ error: "Use /level/<id>?region=na" }, 404, h);
     const region = (u.searchParams.get("region") || "na").toLowerCase().replace(/[^a-z]/g, "") || "na";
-    const key = new Request("https://snomnom-relay.cache/v3/level/" + m[1] + "?region=" + region);
+    const key = new Request("https://snomnom-relay.cache/v4/level/" + m[1] + "?region=" + region);
     const cache = caches.default;
     const hit = await cache.match(key);
     if (hit) { const r = new Response(hit.body, hit); Object.entries(h).forEach(([k, v]) => r.headers.set(k, v)); r.headers.set("x-cache", "hit"); return r; }
