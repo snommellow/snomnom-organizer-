@@ -56,7 +56,7 @@ export function parse(html, id, region) {
     recommendation: (L.stats && L.stats.recommendation) ?? null,
     rank: L.rank || null,
     created: L.created_at || null,
-    ids, url: "https://miliastra.world/levels/" + id + "?region=" + region,
+    seen: Object.fromEntries((o.recommendations || []).filter(x => x && x.guid && x.player_count && x.player_count.length).map(x => [String(x.guid), x.player_count.map(String)])), ids, url: "https://miliastra.world/levels/" + id + "?region=" + region,
     checked: new Date().toISOString(),
   };
 }
