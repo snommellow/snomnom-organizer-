@@ -855,23 +855,16 @@ _spPaint=function(){
 _spClose=function(done){"function"==typeof clsAllPops&&clsAllPops();_spTipOff();const tr=document.querySelector("#mtb > tr.sp-dtr"),box=tr&&tr.querySelector(".spk");
  const end=()=>{_spSi=null;_spdAbOn=null;const y=scrollY;_spdRemove();renderTable();Math.abs(scrollY-y)>1&&scrollTo(0,y)};
  if(!box||_spStill()||!box.animate){end();return void(done&&done())}if(tr._closing)return;tr._closing=1;
- /* the row comes back at once; the card's picture stays behind it as a plain layer and folds away while the rows below glide up */
- const E=_SPD_E,D=420,H=tr.getBoundingClientRect().height,br=box.getBoundingClientRect(),si=tr.dataset.for,cvEl=box.querySelector(".spk-cv");
- const g1=getComputedStyle(box),bgBox={backgroundImage:g1.backgroundImage,backgroundColor:g1.backgroundColor},g2=cvEl?getComputedStyle(cvEl):null,bgCv=g2?{backgroundImage:g2.backgroundImage,backgroundPosition:g2.backgroundPosition,filter:g2.filter}:null,tf=g2?g2.transform:"none";
- end();
- const row=document.querySelector('#mtb > tr[data-si="'+si+'"]');if(!row)return void(done&&done());
- const rowH=row.getBoundingClientRect().height,extra=Math.max(0,H-rowH),cols=[...row.children].reduce((t,c)=>t+("none"===c.style.display?0:c.colSpan||1),0);
- const tail=document.createElement("tr");tail.className="spk-tail";tail.innerHTML='<td colspan="'+cols+'" style="padding:0;border:0;height:'+extra+'px;position:relative"><div class="spk-tlv"><div class="spk-tlc"></div></div></td>';row.after(tail);
- const lay=tail.querySelector(".spk-tlv"),pic=tail.querySelector(".spk-tlc");
- Object.assign(lay.style,{position:"absolute",left:"8px",right:"8px",top:-rowH+6+"px",height:br.height+"px",borderRadius:"12px",overflow:"hidden",pointerEvents:"none",zIndex:"0",backgroundImage:bgBox.backgroundImage,backgroundColor:bgBox.backgroundColor});
- bgCv&&"none"!==bgCv.backgroundImage&&Object.assign(pic.style,{position:"absolute",inset:"-6%",backgroundImage:bgCv.backgroundImage,backgroundSize:"cover",backgroundPosition:bgCv.backgroundPosition,filter:bgCv.filter,transform:tf});
- row.classList.add("sp-open");
- const below=[];for(let r=tail.nextElementSibling;r;r=r.nextElementSibling){if(!r.getClientRects().length)continue;if(r.getBoundingClientRect().top>innerHeight+240+extra)break;below.push(r)}
- const an=[lay.animate([{clipPath:"inset(0 0 0 0 round 12px)",opacity:1},{clipPath:"inset(0 0 "+(br.height-rowH+8)+"px 0 round 10px)",opacity:0}],{duration:D,easing:E,fill:"forwards"}),
-  tail.firstElementChild.animate([{height:extra+"px"},{height:extra+"px"}],{duration:D,fill:"forwards"})];
- below.forEach(r=>an.push(r.animate([{transform:"none"},{transform:"translateY("+(-extra)+"px)"}],{duration:D,easing:E,fill:"forwards"})));
- [...row.children].forEach(td=>td.animate([{opacity:0},{opacity:1}],{duration:D*.7,delay:D*.15,easing:"ease-out",fill:"backwards"}));
- an[0].onfinish=()=>{tail.remove();an.forEach(a=>a.cancel());row.classList.remove("sp-open");"function"==typeof _crLayout&&_crLayout();done&&done()}};
+ /* the opening played backwards: same length and curve; the card folds back into its row, the cover eases out of its zoom,
+    the parts leave in reverse order and the rows below glide back with it */
+ const E=_SPD_E,D=540,si=tr.dataset.for,H=tr.getBoundingClientRect().height,bh=box.getBoundingClientRect().height,rowH=+tr.dataset.rh||34,an=[];
+ const parts=[...tr.querySelectorAll(".spk-nm,.spk-id,.spk-a>*,.spk-s,.spk-stt>*,.spk-sc>*,.spk-tl>*,.spk-ab")].reverse();
+ parts.forEach((el,k)=>an.push(el.animate([{opacity:1,transform:"none"},{opacity:0,transform:"translateY(8px)"}],{duration:300,delay:Math.min(160,14*k),easing:E,fill:"forwards"})));
+ an.push(box.animate([{clipPath:"inset(0 0 0px 0 round 0)",opacity:1},{clipPath:"inset(0 0 "+Math.max(0,bh-rowH)+"px 0 round 0)",opacity:.6}],{duration:D,easing:E,fill:"forwards"}));
+ const cv=box.querySelector(".spk-cv");cv&&an.push(cv.animate([{opacity:1,transform:"none"},{opacity:0,transform:"scale(1.06)"}],{duration:D,easing:E,fill:"forwards",composite:"add"}));
+ const below=_spdBelow(tr);below.forEach(r=>an.push(r.animate([{transform:"none"},{transform:"translateY("+(rowH-H)+"px)"}],{duration:D,easing:E,fill:"forwards"})));
+ let fin=0;const finish=()=>{if(fin++)return;end();an.forEach(a=>a.cancel());const row=document.querySelector('#mtb > tr[data-si="'+si+'"]');row&&[...row.children].forEach(td=>td.animate([{opacity:.6},{opacity:1}],{duration:160,easing:"ease-out"}));"function"==typeof _crLayout&&_crLayout();done&&done()};
+ Promise.all(an.map(a=>a.finished.catch(()=>0))).then(finish)};
 _spToggle=function(e){if(!_mNorm()||document.body.classList.contains("pres-mode"))return;if(_spSi===e)return void _spClose();
  _spTipOff();"undefined"!=typeof _ftt&&_ftt.hide();"function"==typeof clsAllPops&&clsAllPops();
  const had=document.querySelector("#mtb > tr.sp-dtr");_spdFlipMap=!_spStill()?_spdSnap():null;_spSi=e;_spFresh=!0;
