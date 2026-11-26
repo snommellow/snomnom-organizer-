@@ -61,17 +61,17 @@ export function parse(html, id, region) {
   };
 }
 
-export default {
+export function ranks(html) { const f = flight(html), out = {}; const re = /"guid":"(\d+)"/g; let m, last = null; const hits = []; while ((m = re.exec(f))) hits.push([m[1], m.index]); hits.forEach(([g, at], n) => { const end = n + 1 < hits.length ? hits[n + 1][1] : f.length; const pc = f.slice(at, end).match(/"player_count":\[([^\]]*)\]/); if (pc && !out[g]) { const v = (pc[1].match(/\d+/g) || []); v.length && (out[g] = v); } }); return out; } export default {
   async fetch(req, env, ctx) {
     const origin = req.headers.get("Origin") || "";
     const h = cors(origin);
     if (req.method === "OPTIONS") return new Response(null, { headers: h });
     if (origin && !ALLOW.includes(origin)) return json({ error: "Not allowed" }, 403, h);
     const u = new URL(req.url);
-    const m = u.pathname.match(/^\/level\/(\d{6,14})$/);
+    if (u.pathname === "/rankings") { const rg = (u.searchParams.get("region") || "na").toLowerCase().replace(/[^a-z]/g, "") || "na"; const pg = await fetch("https://miliastra.world/rankings/hot?region=" + rg, { headers: { "User-Agent": "SnomnomOrganizerRelay/1.0 (+https://snommellow.github.io/snomnom-organizer-/; one page per request, cached a day)", "Accept": "text/html" } }); if (!pg.ok) return json({ error: "miliastra.world answered " + pg.status }, 502, h); return json({ seen: ranks(await pg.text()), checked: new Date().toISOString() }, 200, { ...h, "Cache-Control": "public, max-age=" + DAY }); } const m = u.pathname.match(/^\/level\/(\d{6,14})$/);
     if (!m) return json({ error: "Use /level/<id>?region=na" }, 404, h);
     const region = (u.searchParams.get("region") || "na").toLowerCase().replace(/[^a-z]/g, "") || "na";
-    const key = new Request("https://snomnom-relay.cache/level/" + m[1] + "?region=" + region);
+    const key = new Request("https://snomnom-relay.cache/v2/level/" + m[1] + "?region=" + region);
     const cache = caches.default;
     const hit = await cache.match(key);
     if (hit) { const r = new Response(hit.body, hit); Object.entries(h).forEach(([k, v]) => r.headers.set(k, v)); r.headers.set("x-cache", "hit"); return r; }
