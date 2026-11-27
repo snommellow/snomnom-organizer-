@@ -808,7 +808,9 @@ function _spdText(tr,d){const t=tr.querySelector(".spk-abt");setTimeout(()=>_spd
 function _spdAboutPick(tr,u){const box=tr.querySelector(".spk"),old=box.querySelector(".spk-cvx");const x=document.createElement("div");x.className="spk-cvx";u&&(x.style.backgroundImage='url("'+u+'")');box.insertBefore(x,box.querySelector(".spk-rn"));requestAnimationFrame(()=>x.classList.add("on"));old&&(old.classList.remove("on"),setTimeout(()=>old.remove(),500));tr.querySelectorAll(".spk-sh").forEach(b=>b.classList.toggle("on",b.dataset.u===(u||"")))}
 async function _spdAboutShow(tr,si,quiet){const a=stages[si],box=tr.querySelector(".spk"),t=tr.querySelector(".spk-abt"),sh=tr.querySelector(".spk-shots"),bb=tr.querySelector(".spk-abb");
  box.classList.add("ab-on");bb.setAttribute("aria-pressed","true");quiet&&box.classList.add("ab-still");
- const tt=tr.querySelector(".spk-tt");if(tt){tt.style.transform="";const br=box.getBoundingClientRect(),tr0=tt.getBoundingClientRect(),rn=tr.querySelector(".spk-rn"),rr=rn&&rn.getBoundingClientRect(),dy=br.top+10-tr0.top,dx=rr&&rr.width?Math.max(0,rr.right+10-tr0.left-16):0;tt.style.transform="translate("+dx+"px,"+dy+"px)"}
+ const tt=tr.querySelector(".spk-tt");if(tt){tt.style.transform="";const br=box.getBoundingClientRect(),tr0=tt.getBoundingClientRect(),rn=tr.querySelector(".spk-rn"),rr=rn&&rn.getBoundingClientRect(),nm=tt.querySelector(".spk-nm")||tt,nr=nm.getBoundingClientRect(),ch=rn&&rn.querySelector(".rnchip"),cr=ch&&ch.getBoundingClientRect(),
+ /* the title's line sits level with the number chip: their middles line up */
+ dy=cr&&cr.height?cr.top+cr.height/2-(nr.top+nr.height/2):br.top+10-tr0.top,dx=rr&&rr.width?Math.max(0,rr.right+10-tr0.left-16):0;tt.style.transform="translate("+dx+"px,"+dy+"px)"}
  t.innerHTML='<span class="spk-abl"><i class="spk-spin"></i>Loading the description</span>';sh.innerHTML="";tr.querySelector(".spk-bub").innerHTML="";
  let d;try{d=await _spdAboutLoad(a)}catch(e){if(_spdAbOn===si&&tr.isConnected)t.innerHTML='<span class="spk-abl">The description couldn’t be loaded. Try again in a moment.</span>';return}
  if(_spdAbOn!==si||!tr.isConnected)return;
