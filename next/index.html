@@ -1678,3 +1678,19 @@ setTimeout(_olkBtn,0);
 /* settings rows added in 4.0: icon, hover preview and icon motion, same as every other row */
 (()=>{const ic={rcRow:'<path d="M4 7h8M4 12h8M4 17h5"/><path d="M15 5h5v14l-2.5-1.6L15 19z"/>',olkAuto:'<path d="M7 18a4.5 4.5 0 0 1-.6-9 6 6 0 0 1 11.6 1.5A3.75 3.75 0 0 1 17.5 18z"/><path d="M12 10.5v5m-2-2 2 2 2-2"/>',updNotice:'<path d="M20 12a8 8 0 1 1-2.4-5.7"/><path d="M20 4v5h-5"/>'};Object.keys(ic).forEach((k=>{k in _BICO||Object.defineProperty(_BICO,k,{get:()=>ic[k]})}));Object.assign(_SIANIM,{rcRow:"drop",olkAuto:"drop",updNotice:"spinback"});Object.assign(SPREVIEW,{rcRow:()=>({off:_pvMuted("Stage names show no Recall icon."),on:_pvMuted("A small Recall icon sits after the name of each stage with past work.")}),olkAuto:()=>({off:_pvMuted("New stages wait until you press Fetch."),on:_pvMuted("New stages fill in on their own, one at a time.")}),updNotice:()=>({off:_pvMuted("You get the new version the next time you open the tool."),on:_pvMuted("A notice says a new version is ready, with Reload.")})})})();
 </script>
+<script id="pz-js">/* Pinch to zoom out on phones: two fingers pinch the page (panels and table together) down until the whole table
+   fits across the screen. Pinching back opens it up to normal size; past normal size the phone's own zoom takes over.
+   The bars fixed to the screen keep their size. The last size is remembered on this device. */
+(()=>{if(!matchMedia("(pointer:coarse)").matches)return;let z=1,z0=1,d0=0,on=!1;
+ const els=()=>[...document.body.children].filter(e=>"SCRIPT"!==e.tagName&&"fixed"!==getComputedStyle(e).position);
+ const minZ=()=>{const t=document.getElementById("mt");if(!t)return 1;const w=t.getBoundingClientRect().width/z+48;return Math.min(1,Math.max(.3,innerWidth/w))};
+ const set=v=>{z=Math.round(Math.max(minZ(),Math.min(1,v))*1e3)/1e3;els().forEach(e=>{e.style.zoom=1===z?"":z});document.documentElement.classList.toggle("pz-out",z<1)};
+ const dist=t=>Math.hypot(t[0].clientX-t[1].clientX,t[0].clientY-t[1].clientY);
+ addEventListener("touchstart",e=>{if(2!==e.touches.length||e.target.closest("input,textarea,select,[contenteditable=true]"))return;d0=dist(e.touches);z0=z;on=!0},{passive:!0});
+ addEventListener("touchmove",e=>{if(!on||2!==e.touches.length)return;const v=z0*dist(e.touches)/d0;if(v>=1&&z>=1)return;e.preventDefault();set(v)},{passive:!1});
+ addEventListener("touchend",e=>{if(on&&e.touches.length<2){on=!1;try{localStorage.setItem("snomnom_pzoom",String(z))}catch(x){}}},{passive:!0});
+ /* Safari: stop its own page zoom while the page is being pinched smaller */
+ addEventListener("gesturestart",e=>{z<1&&e.preventDefault()});addEventListener("gesturechange",e=>{(z<1||e.scale<1)&&e.preventDefault()});
+ let s=1;try{s=parseFloat(localStorage.getItem("snomnom_pzoom"))||1}catch(x){}s<1&&requestAnimationFrame(()=>set(s));
+ addEventListener("resize",()=>{z<1&&set(z)})})();
+</script>
